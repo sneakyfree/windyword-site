@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-windy-dark text-white antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-windy-gold via-windy-amber to-yellow-500 bg-clip-text text-transparent;
+  }
+  
+  .glow {
+    text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+  }
+  
+  .border-glow {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+  }
+}
