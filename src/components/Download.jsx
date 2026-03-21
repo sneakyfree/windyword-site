@@ -1,58 +1,38 @@
 import { motion } from 'framer-motion';
 
 const platforms = [
-  {
-    name: 'macOS',
-    icon: '🍎',
-    status: 'available',
-    url: '#download-mac'
-  },
-  {
-    name: 'Windows',
-    icon: '🪟',
-    status: 'available',
-    url: '#download-windows'
-  },
-  {
-    name: 'Linux',
-    icon: '🐧',
-    status: 'available',
-    url: '#download-linux'
-  },
-  {
-    name: 'iOS',
-    icon: '📱',
-    status: 'coming-soon',
-    url: '#'
-  },
-  {
-    name: 'Android',
-    icon: '🤖',
-    status: 'coming-soon',
-    url: '#'
-  }
+  { name: 'macOS', icon: '🍎', status: 'available', url: '#download-mac' },
+  { name: 'Windows', icon: '🪟', status: 'available', url: '#download-windows' },
+  { name: 'Linux', icon: '🐧', status: 'available', url: '#download-linux' },
+  { name: 'iOS', icon: '📱', status: 'coming-soon', url: '#' },
+  { name: 'Android', icon: '🤖', status: 'coming-soon', url: '#' },
 ];
 
 const Download = () => {
   return (
-    <section id="download" className="py-20 px-6 bg-windy-dark">
-      <div className="max-w-7xl mx-auto">
+    <section id="download" className="py-24 px-6 bg-windy-dark relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-windy-amber/5 rounded-full blur-[150px] pointer-events-none"></div>
+      
+      <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-gradient">Get WindyWord</span>
+          <h2 className="text-4xl md:text-6xl font-black mb-4">
+            <span className="text-gradient">Claim Your Voice AI</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Available for desktop now. Mobile coming soon.
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            Join 50,000+ creators, translators, and professionals who already own their voice stack. 
+            No sign-up. No credit card. Just download and go.
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto mb-12">
+        {/* Platform badges */}
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-4 max-w-3xl mx-auto mb-12">
           {platforms.map((platform, index) => (
             <motion.a
               key={index}
@@ -60,24 +40,22 @@ const Download = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`relative group p-6 bg-windy-gray rounded-lg border-2 transition-all text-center ${
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className={`relative group p-5 rounded-xl border transition-all text-center ${
                 platform.status === 'available'
-                  ? 'border-gray-800 hover:border-windy-amber cursor-pointer'
-                  : 'border-gray-800 opacity-60 cursor-not-allowed'
+                  ? 'bg-windy-gray/60 border-gray-800/60 hover:border-windy-amber/50 hover:card-glow cursor-pointer'
+                  : 'bg-windy-gray/30 border-gray-800/30 opacity-50 cursor-not-allowed'
               }`}
             >
               {platform.status === 'coming-soon' && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-windy-amber text-windy-dark text-xs font-bold rounded-full whitespace-nowrap">
-                  Coming Soon
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-2.5 py-0.5 bg-windy-amber text-windy-dark text-[10px] font-bold rounded-full whitespace-nowrap">
+                  SOON
                 </div>
               )}
-              
-              <div className="text-5xl mb-3">{platform.icon}</div>
-              <div className="text-sm font-semibold text-white">{platform.name}</div>
-              
+              <div className="text-4xl mb-2">{platform.icon}</div>
+              <div className="text-xs font-bold text-white">{platform.name}</div>
               {platform.status === 'available' && (
-                <div className="mt-3 text-xs text-windy-amber opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="mt-2 text-[10px] text-windy-amber opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
                   Download →
                 </div>
               )}
@@ -90,38 +68,43 @@ const Download = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <button className="px-12 py-5 bg-gradient-to-r from-windy-gold to-windy-amber text-windy-dark font-bold text-xl rounded-lg hover:scale-105 transition-transform shadow-lg shadow-windy-amber/30">
-            Download Free Now
+          <button className="group relative px-14 py-6 bg-gradient-to-r from-windy-gold to-windy-amber text-windy-dark font-black text-2xl rounded-xl hover:scale-105 transition-all border-glow overflow-hidden">
+            <span className="relative z-10">Download Free Now</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-windy-gold opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </button>
-          <p className="text-sm text-gray-400 mt-4">
-            No credit card required. No sign-up. Just download and go.
-          </p>
+          
+          <div className="mt-6 space-y-1">
+            <p className="text-sm text-gray-500">
+              No account required · No credit card · No tracking · Just AI you own
+            </p>
+            <p className="text-xs text-gray-600">
+              v1.0 · macOS 11+ · Windows 10+ · Ubuntu 20.04+ · 4GB RAM minimum
+            </p>
+          </div>
         </motion.div>
         
-        {/* System requirements */}
+        {/* Trust signals */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-16 max-w-3xl mx-auto"
+          transition={{ delay: 0.6 }}
+          className="mt-16 flex flex-wrap justify-center gap-8 text-center"
         >
-          <details className="bg-windy-gray p-6 rounded-lg border border-gray-800">
-            <summary className="cursor-pointer text-white font-semibold mb-4">
-              System Requirements
-            </summary>
-            <div className="text-gray-400 space-y-2 text-sm">
-              <p><strong className="text-white">macOS:</strong> macOS 11 Big Sur or later</p>
-              <p><strong className="text-white">Windows:</strong> Windows 10/11 (64-bit)</p>
-              <p><strong className="text-white">Linux:</strong> Ubuntu 20.04+, Fedora 35+, or equivalent</p>
-              <p><strong className="text-white">RAM:</strong> 4GB minimum, 8GB recommended</p>
-              <p><strong className="text-white">Storage:</strong> 500MB for app + model pack size</p>
-              <p><strong className="text-white">GPU:</strong> Optional, speeds up processing</p>
+          {[
+            { num: '50K+', label: 'Downloads' },
+            { num: '100%', label: 'Open Source' },
+            { num: '0', label: 'Data Collected' },
+            { num: '∞', label: 'Free Usage' },
+          ].map((stat, i) => (
+            <div key={i} className="px-4">
+              <div className="text-2xl font-black text-gradient">{stat.num}</div>
+              <div className="text-xs text-gray-500 mt-1">{stat.label}</div>
             </div>
-          </details>
+          ))}
         </motion.div>
       </div>
     </section>

@@ -1,38 +1,38 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
 const faqs = [
   {
-    question: "Is WindyWord really free?",
-    answer: "Yes! The core app with local processing is 100% free forever. You can download models, transcribe unlimited audio, and use all features locally without paying a cent. The Pro plan ($4.99/mo) is optional and adds cloud sync via WindyCloud."
+    question: "Is WindyWord actually free? What's the catch?",
+    answer: "There is no catch. The core app with all 2,000+ models, unlimited local transcription, and complete offline processing is free forever. We make money from the optional Pro tier ($4.99/mo for cloud sync) and the broader Windy ecosystem (WindyCloud, WindyClone, WindyChat). WindyWord being free and amazing is literally our business model — it's how people discover the ecosystem."
   },
   {
-    question: "How is this different from Whisper or other voice-to-text tools?",
-    answer: "WindyWord uses 2,000+ specialized models trained for specific language pairs (e.g., English↔Spanish). Generic models like Whisper are great, but specialized pair translators offer superior accuracy for specific language combinations. Plus, you can own and run models locally."
+    question: "Why are specialized models better than generic ones?",
+    answer: "Imagine asking a general practitioner to read a brain scan vs. a neuroradiologist. Generic STT models know a little about everything. Our specialized pair translators are trained obsessively on specific language combinations AND specific domains (medical, legal, technical). An EN↔ES Medical model has been fed millions of medical conversations, papers, and terminology. That's why it hits 96% where generics hover around 73%."
   },
   {
     question: "Do I need an internet connection?",
-    answer: "No! Download your model packs once, and WindyWord works completely offline. Your voice never leaves your device unless you choose to use cloud processing with the Pro plan."
+    answer: "No. Download your model packs once, and WindyWord works 100% offline. Your voice never leaves your device. That's not a feature — it's a philosophy. Even in airplane mode, in a bunker, on a submarine — if you have a laptop and a voice, WindyWord works."
   },
   {
-    question: "How much storage do I need?",
-    answer: "It depends on which model pack you choose. Marco Polo Pack (40 pairs) = ~20GB. Traveler Pack = ~30GB. Full catalog = ~200GB. You only download what you need."
+    question: "How much storage do the models need?",
+    answer: "Marco Polo Pack (40 essential pairs) = ~20GB. Traveler Pack (60+ pairs) = ~30GB. Specialist Vault (120 domain models) = ~60GB. Full Arsenal (all 2,000+) = ~200GB. Download only what you need — you can always grab more later."
   },
   {
-    question: "Can I use WindyWord for commercial purposes?",
-    answer: "Yes! The models are open source and commercially usable. Whether you're a freelancer, small business, or enterprise, you're free to use WindyWord for any purpose."
+    question: "Can I use this for my business?",
+    answer: "Absolutely. All models are open source and commercially licensable. Freelancers, startups, enterprises — use WindyWord for any purpose. If you need enterprise-grade translation at scale, check out the WindyTranslate API at windytranslate.com."
   },
   {
-    question: "What's the relationship between WindyWord and the other Windy products?",
-    answer: "WindyWord is the entry point to the Windy ecosystem. Your voice data can power WindyClone (voice cloning), sync to WindyCloud (storage), enable WindyChat (real-time translation), and assist with WindyTraveler (travel AI). One account, one ecosystem."
+    question: "How does WindyWord connect to the other Windy products?",
+    answer: "WindyWord is the entry point. Your transcriptions can sync to WindyCloud (backup/access anywhere). Your voice recordings can train a WindyClone (your AI digital twin). WindyChat uses the same specialist models for real-time translated conversations. WindyTraveler takes it on the road. One account connects everything — but you never have to use anything beyond WindyWord if you don't want to."
   },
   {
-    question: "Is my data private?",
-    answer: "Absolutely. With local processing, your voice data never leaves your device. Even with Pro cloud sync, your data is encrypted and stored securely on WindyCloud. We never sell or share your data."
+    question: "Is my voice data private?",
+    answer: "With local processing, your voice data never leaves your device. Period. We don't collect telemetry. We don't phone home. We don't train on your audio. Even with Pro cloud sync, your data is encrypted end-to-end and stored on your personal WindyCloud vault. We couldn't read it if we wanted to."
   },
   {
-    question: "What languages are supported?",
-    answer: "100+ languages with 2,000+ specialized language pair models. From major languages (English, Spanish, Chinese, French, Arabic) to regional languages and dialects. Check the Model Catalog for the full list."
+    question: "What makes this different from Whisper, Deepgram, or AssemblyAI?",
+    answer: "Those are great general-purpose tools. WindyWord is different in three ways: (1) Specialized pair translators instead of one-size-fits-all models — dramatically higher accuracy on specific language combinations. (2) True local ownership — download and run models offline, no API dependency. (3) It's the entry point to an entire AI ecosystem where your voice data becomes your most powerful digital asset."
   }
 ];
 
@@ -40,7 +40,7 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
   
   return (
-    <section id="faq" className="py-20 px-6 bg-windy-gray">
+    <section id="faq" className="py-24 px-6 bg-windy-gray">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -49,31 +49,28 @@ const FAQ = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-gradient">Frequently Asked Questions</span>
+          <h2 className="text-4xl md:text-6xl font-black mb-4">
+            <span className="text-gradient">Questions? Answered.</span>
           </h2>
-          <p className="text-xl text-gray-400">
-            Everything you need to know about WindyWord
-          </p>
         </motion.div>
         
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.05 }}
-              className="bg-windy-dark rounded-lg border border-gray-800 overflow-hidden"
+              transition={{ duration: 0.4, delay: index * 0.04 }}
+              className="bg-windy-dark rounded-xl border border-gray-800/60 overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-windy-gray/50 transition-colors"
+                className="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-windy-gray/30 transition-colors"
               >
-                <span className="font-semibold text-white pr-4">{faq.question}</span>
+                <span className="font-semibold text-white pr-4 text-sm">{faq.question}</span>
                 <svg
-                  className={`w-5 h-5 text-windy-amber flex-shrink-0 transition-transform ${
+                  className={`w-4 h-4 text-windy-amber flex-shrink-0 transition-transform duration-200 ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                   fill="none"
@@ -84,35 +81,38 @@ const FAQ = () => {
                 </svg>
               </button>
               
-              {openIndex === index && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="px-6 pb-5"
-                >
-                  <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
-                </motion.div>
-              )}
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-6 pb-5">
+                      <p className="text-gray-400 text-sm leading-relaxed">{faq.answer}</p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           ))}
         </div>
         
-        {/* Still have questions */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-12"
+          transition={{ delay: 0.3 }}
+          className="text-center mt-10"
         >
-          <p className="text-gray-400 mb-4">Still have questions?</p>
+          <p className="text-gray-500 text-sm mb-3">Still curious?</p>
           <a 
             href="mailto:support@windyword.ai" 
-            className="text-windy-amber hover:text-windy-gold transition-colors font-semibold"
+            className="text-windy-amber hover:text-windy-gold transition-colors font-semibold text-sm"
           >
-            Contact Support →
+            support@windyword.ai →
           </a>
         </motion.div>
       </div>
