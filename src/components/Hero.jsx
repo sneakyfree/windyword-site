@@ -219,7 +219,7 @@ const AccuracyComparison = () => {
       <div className="flex items-center justify-center gap-6 mt-4 pt-4 border-t border-gray-800">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 bg-gray-600 rounded-full"></div>
-          <span className="text-xs text-gray-500">Generic STT</span>
+          <span className="text-xs text-gray-500">Generic</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 bg-windy-amber rounded-full"></div>

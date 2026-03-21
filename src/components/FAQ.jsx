@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     question: "Why are specialized models better than generic ones?",
-    answer: "Imagine asking a general practitioner to read a brain scan vs. a neuroradiologist. Generic STT models know a little about everything. Our specialized pair translators are trained obsessively on specific language combinations AND specific domains (medical, legal, technical). An EN↔ES Medical model has been fed millions of medical conversations, papers, and terminology. That's why it hits 96% where generics hover around 73%."
+    answer: "Imagine asking a general practitioner to read a brain scan vs. a neuroradiologist. Generic voice-to-text models know a little about everything. Our specialized pair translators are trained obsessively on specific language combinations AND specific domains (medical, legal, technical). An EN↔ES Medical model has been fed millions of medical conversations, papers, and terminology. That's why it hits 96% where generics hover around 73%."
   },
   {
     question: "Do I need an internet connection?",
@@ -31,7 +31,7 @@ const faqs = [
     answer: "All three processing modes — Device Only, Device + WindyCloud, and Auto — are fully private. We don't collect telemetry. We don't phone home. We don't train on your audio. In Device Only mode, nothing ever leaves your machine. In cloud modes, your data is encrypted end-to-end and deleted after processing. You choose where your voice is processed — it's a setting, never a surprise."
   },
   {
-    question: "What makes this different from Whisper, Deepgram, or AssemblyAI?",
+    question: "What makes WindyWord different from other voice-to-text tools?",
     answer: "Those are great general-purpose tools. WindyWord is different in three ways: (1) Specialized pair translators instead of one-size-fits-all models — dramatically higher accuracy on specific language combinations. (2) True local ownership — download and run models offline, no API dependency. (3) It's the entry point to an entire AI ecosystem where your voice data becomes your most powerful digital asset."
   }
 ];

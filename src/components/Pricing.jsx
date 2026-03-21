@@ -98,17 +98,17 @@ const plans = [
 
 function CompetitorComparison() {
   const competitors = [
-    { name: 'Wispr Flow', free: '5 min', paid: '$8.99/mo', paidFeatures: '5-min recordings, cloud-only', verdict: 'Our FREE tier = their paid tier' },
-    { name: 'Otter.ai', free: '300 min/mo', paid: '$16.99/mo', paidFeatures: 'Cloud-only, no offline', verdict: 'We\'re offline-first + unlimited local' },
-    { name: 'Rev.com', free: 'None', paid: '$29.99/mo', paidFeatures: 'Cloud-only, English focus', verdict: 'We have 2,000+ specialist models — free' },
+    { name: 'Popular Dictation Apps', free: '5 min limit', paid: '$8–10/mo', paidFeatures: 'Short recordings, cloud-only', verdict: 'Our FREE tier = their paid tier' },
+    { name: 'Meeting Transcription Tools', free: '300 min/mo cap', paid: '$15–20/mo', paidFeatures: 'Cloud-only, no offline mode', verdict: 'We\'re offline-first + unlimited local' },
+    { name: 'Premium Transcription Services', free: 'None', paid: '$25–30/mo', paidFeatures: 'Cloud-only, limited languages', verdict: 'We have 2,000+ specialist models — free' },
   ];
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
       className="mt-16 max-w-4xl mx-auto"
     >
-      <h3 className="text-2xl font-bold text-center mb-2">The Uncomfortable Truth About Our Competitors</h3>
-      <p className="text-gray-500 text-center text-sm mb-8">We're not trying to be mean. These are just facts.</p>
+      <h3 className="text-2xl font-bold text-center mb-2">How We Compare</h3>
+      <p className="text-gray-500 text-center text-sm mb-8">Most voice-to-text tools charge for what we give away free.</p>
       <div className="grid md:grid-cols-3 gap-4">
         {competitors.map((c, i) => (
           <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
