@@ -49,6 +49,46 @@ const plans = [
     badge: 'RECOMMENDED',
     note: 'Cancel anytime. Free tier keeps working forever.',
     comparison: null,
+  },
+  {
+    name: 'Windy Ultra',
+    price: { monthly: '$8.99', annual: '$79', lifetime: '$199' },
+    period: { monthly: '/mo', annual: '/yr', lifetime: 'one-time' },
+    tagline: 'Real-time translation. Conversation mode. The global communicator.',
+    features: [
+      'Everything in Pro, plus:',
+      'Live translation — 5 language pairs',
+      'Conversation mode — two people, two languages, one device',
+      { text: 'Cloud translation API + Cloud processing', subscriptionOnly: true },
+      '25 offline translation engines',
+      'All Pro features included'
+    ],
+    cta: 'Start Ultra — 14 Days Free',
+    highlight: false,
+    badge: 'NEW',
+    note: 'Cancel anytime. Downgrades to Pro features.',
+    comparison: null,
+  },
+  {
+    name: 'Windy Max',
+    price: { monthly: '$14.99', annual: '$149', lifetime: '$299' },
+    period: { monthly: '/mo', annual: '/yr', lifetime: 'one-time' },
+    tagline: 'The ultimate. 60-min recordings. 99 languages. Medical & legal grade.',
+    features: [
+      'Everything in Ultra, plus:',
+      '60-minute recordings',
+      '99 translation language pairs',
+      'Text-to-speech output',
+      'Medical & legal glossaries',
+      { text: 'Priority cloud processing — fastest queue', subscriptionOnly: true },
+      '100 offline translation engines',
+      'Offline translation — no internet needed'
+    ],
+    cta: 'Start Max — 14 Days Free',
+    highlight: false,
+    badge: 'ULTIMATE',
+    note: 'Cancel anytime. The full Windy experience.',
+    comparison: null,
   }
 ];
 
@@ -138,7 +178,7 @@ const Pricing = () => {
           </div>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
@@ -167,12 +207,24 @@ const Pricing = () => {
                 {billing === 'annual' && plan.name === 'Windy Pro' && (
                   <div className="mt-2">
                     <span className="text-xs text-gray-500 line-through mr-2">$59.88/yr at monthly</span>
-                    <span className="text-xs text-green-400 font-bold">Save $10.88</span>
+                    <span className="text-xs text-green-400 font-bold">Save 17%</span>
                   </div>
                 )}
-                {billing === 'lifetime' && plan.name === 'Windy Pro' && (
+                {billing === 'annual' && plan.name === 'Windy Ultra' && (
                   <div className="mt-2">
-                    <span className="text-xs text-green-400 font-bold">Pays for itself in 20 months. Own it forever.</span>
+                    <span className="text-xs text-gray-500 line-through mr-2">$107.88/yr at monthly</span>
+                    <span className="text-xs text-green-400 font-bold">Save 27%</span>
+                  </div>
+                )}
+                {billing === 'annual' && plan.name === 'Windy Max' && (
+                  <div className="mt-2">
+                    <span className="text-xs text-gray-500 line-through mr-2">$179.88/yr at monthly</span>
+                    <span className="text-xs text-green-400 font-bold">Save 17%</span>
+                  </div>
+                )}
+                {billing === 'lifetime' && plan.name !== 'Free' && (
+                  <div className="mt-2">
+                    <span className="text-xs text-green-400 font-bold">Own it forever. No recurring fees.</span>
                   </div>
                 )}
               </div>
