@@ -36,7 +36,7 @@ const plans = [
       'Everything in Free, plus:',
       '30-minute recordings',
       'All 15 engines + 99 languages',
-      'Cloud STT via WindyCloud (blazing fast)',
+      { text: 'Cloud STT via WindyCloud (blazing fast)', subscriptionOnly: true },
       'Sync transcriptions across all devices',
       'Batch mode — drop 50 files, walk away',
       'LLM polish — AI cleans up your transcript',
@@ -178,15 +178,37 @@ const Pricing = () => {
               </div>
               
               <ul className="space-y-3 mb-8">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-windy-amber flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-300 text-sm">{feature}</span>
-                  </li>
-                ))}
+                {plan.features.map((feature, i) => {
+                  const isObj = typeof feature === 'object';
+                  const text = isObj ? feature.text : feature;
+                  const isSubscriptionOnly = isObj && feature.subscriptionOnly;
+                  const dimmed = isSubscriptionOnly && billing === 'lifetime';
+                  return (
+                    <li key={i} className={`flex items-start gap-3 ${dimmed ? 'opacity-40' : ''}`}>
+                      <svg className="w-5 h-5 text-windy-amber flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-gray-300 text-sm">
+                        {text}
+                        {dimmed && <span className="text-gray-600 text-xs ml-1">(subscription only)</span>}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
+              
+              {/* Cloud STT policy callout for Pro */}
+              {plan.highlight && (
+                <div className={`mb-4 px-4 py-3 rounded-lg text-xs font-semibold ${
+                  billing === 'lifetime' 
+                    ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20' 
+                    : 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+                }`}>
+                  {billing === 'lifetime' 
+                    ? '🏠 Lifetime = Local engines only — Own Your Stack. No cloud dependency, ever.'
+                    : '☁️ Cloud STT included — powered by WindyCloud. Blazing fast, always up to date.'}
+                </div>
+              )}
               
               <button className={`w-full px-6 py-4 font-bold rounded-xl transition-all text-lg ${
                 plan.highlight
