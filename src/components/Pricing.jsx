@@ -141,7 +141,7 @@ function CompetitorComparison() {
 }
 
 const Pricing = () => {
-  const [billing, setBilling] = useState('monthly');
+  const [billing, setBilling] = useState('lifetime');
 
   return (
     <section id="pricing" className="py-24 px-6 bg-windy-dark relative overflow-hidden">
@@ -226,9 +226,19 @@ const Pricing = () => {
                     <span className="text-xs text-green-400 font-bold">Save 17%</span>
                   </div>
                 )}
-                {billing === 'lifetime' && plan.name !== 'Free' && (
+                {billing === 'lifetime' && plan.name === 'Windy Pro' && (
                   <div className="mt-2">
-                    <span className="text-xs text-green-400 font-bold">Own it forever. No recurring fees.</span>
+                    <span className="text-xs text-green-400 font-bold">Pays for itself in 20 months. Own it forever.</span>
+                  </div>
+                )}
+                {billing === 'lifetime' && plan.name === 'Windy Ultra' && (
+                  <div className="mt-2">
+                    <span className="text-xs text-green-400 font-bold">Pays for itself in 22 months. Own it forever.</span>
+                  </div>
+                )}
+                {billing === 'lifetime' && plan.name === 'Windy Max' && (
+                  <div className="mt-2">
+                    <span className="text-xs text-green-400 font-bold">Pays for itself in 20 months. Own it forever.</span>
                   </div>
                 )}
               </div>
@@ -283,6 +293,34 @@ const Pricing = () => {
 
         <CompetitorComparison />
         
+        {/* Ecosystem cross-promotion */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-16 max-w-4xl mx-auto"
+        >
+          <h3 className="text-2xl font-bold text-center mb-2">Your Voice Opens Every Door</h3>
+          <p className="text-gray-500 text-center text-sm mb-8">WindyWord is your entry point. The Windy ecosystem does the rest.</p>
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              { icon: '☁️', name: 'WindyCloud', hook: 'Need more storage? Sync your transcriptions, models, and voice data across every device.', url: 'https://windycloud.com' },
+              { icon: '✈️', name: 'WindyTraveler', hook: 'Traveling soon? Offline translation, AI tour guides, local deals — powered by 3,100+ specialist models.', url: 'https://windytraveler.com' },
+              { icon: '🧬', name: 'WindyClone', hook: 'Your recordings can build your digital twin. Same voice, any language. Your AI identity.', url: 'https://windyclone.ai' },
+            ].map((p, i) => (
+              <motion.a key={i} href={p.url} target="_blank" rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                className="group bg-windy-dark/60 border border-gray-800/50 rounded-xl p-5 hover:border-windy-amber/40 transition-all"
+              >
+                <span className="text-3xl block mb-2">{p.icon}</span>
+                <h4 className="text-sm font-bold text-white group-hover:text-windy-amber transition-colors mb-1">{p.name}</h4>
+                <p className="text-xs text-gray-400 leading-relaxed">{p.hook}</p>
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -291,7 +329,7 @@ const Pricing = () => {
           className="text-center mt-10"
         >
           <p className="text-sm text-gray-500">
-            Cancel Pro anytime. No questions. No guilt. Free keeps working forever.
+            Cancel anytime. No questions. No guilt. Free keeps working forever.
           </p>
         </motion.div>
       </div>
