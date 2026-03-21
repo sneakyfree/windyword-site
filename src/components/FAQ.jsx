@@ -4,7 +4,7 @@ import { useState } from 'react';
 const faqs = [
   {
     question: "Is WindyWord actually free? What's the catch?",
-    answer: "There is no catch. The core app with all 2,000+ models, unlimited local transcription, and complete offline processing is free forever. We make money from the optional Pro tier ($4.99/mo for cloud sync) and the broader Windy ecosystem (WindyCloud, WindyClone, WindyChat). WindyWord being free and amazing is literally our business model — it's how people discover the ecosystem."
+    answer: "There is no catch. The core app with 2,000+ models, local transcription in any of 99 languages, and complete offline processing is free forever. We make money from Pro/Ultra/Max tiers (cloud processing, translation, advanced features) and the broader Windy ecosystem (WindyCloud, WindyClone, WindyChat). WindyWord being free and amazing is literally our business model — it's how people discover the ecosystem."
   },
   {
     question: "Why are specialized models better than generic ones?",

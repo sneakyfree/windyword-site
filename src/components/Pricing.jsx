@@ -14,12 +14,13 @@ const plans = [
     period: { monthly: 'forever', annual: 'forever', lifetime: 'forever' },
     tagline: 'Not a trial. Not a teaser. The real thing.',
     features: [
-      'Unlimited local transcriptions',
+      'Auto-detects any of 99 languages',
       'Download any model — all 2,000+',
       '5-minute recordings',
       'Offline-capable — local by default, you choose if data ever leaves your device',
       'Open source models you OWN',
       'Commercial use allowed',
+      '500 MB WindyCloud storage',
       'Community support'
     ],
     cta: 'Download Free',
@@ -42,6 +43,7 @@ const plans = [
       'LLM polish — AI cleans up your transcript',
       'Speaker identification (who said what)',
       'Feed your voice data to WindyClone',
+      '5 GB WindyCloud storage',
       'Priority support + early access'
     ],
     cta: 'Start Pro — 14 Days Free',
@@ -61,6 +63,7 @@ const plans = [
       'Conversation mode — two people, two languages, one device',
       { text: 'Cloud translation API + Cloud processing', subscriptionOnly: true },
       '25 offline translation engines',
+      '10 GB WindyCloud storage',
       'All Pro features included'
     ],
     cta: 'Start Ultra — 14 Days Free',
@@ -82,7 +85,8 @@ const plans = [
       'Medical & legal glossaries',
       { text: 'Priority cloud processing — fastest queue', subscriptionOnly: true },
       '100 offline translation engines',
-      'Offline translation — no internet needed'
+      'Offline translation — no internet needed',
+      '25 GB WindyCloud storage'
     ],
     cta: 'Start Max — 14 Days Free',
     highlight: false,

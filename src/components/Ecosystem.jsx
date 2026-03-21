@@ -124,7 +124,7 @@ const Ecosystem = () => {
             <span className="text-xl">🔧</span>
             <div className="text-left">
               <p className="text-sm font-bold text-white">All powered by WindyTranslate</p>
-              <p className="text-xs text-gray-500">2,000+ specialized models • B2B API available • <a href="https://windytranslate.com" className="text-windy-amber/70 hover:text-windy-amber">windytranslate.com</a></p>
+              <p className="text-xs text-gray-500">3,100+ specialized models • B2B API available • <a href="https://windytranslate.com" className="text-windy-amber/70 hover:text-windy-amber">windytranslate.com</a></p>
             </div>
           </div>
         </motion.div>
