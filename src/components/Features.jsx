@@ -9,9 +9,9 @@ const features = [
   },
   {
     icon: '🔒',
-    title: 'Your Voice Never Leaves Your Device',
-    description: 'Process everything locally. No audio uploaded. No cloud dependency. No eavesdropping. Your voice is yours — we built it that way on purpose.',
-    highlight: '100% offline capable'
+    title: 'Your Voice, Your Rules',
+    description: 'Process everything locally by default. No audio uploaded unless you choose cloud mode. No eavesdropping. You decide where your voice goes — we built it that way on purpose.',
+    highlight: 'Local-first, offline-capable'
   },
   {
     icon: '⚡',

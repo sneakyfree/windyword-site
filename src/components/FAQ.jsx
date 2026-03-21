@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     question: "Do I need an internet connection?",
-    answer: "No. Download your model packs once, and WindyWord works 100% offline. Your voice never leaves your device. That's not a feature — it's a philosophy. Even in airplane mode, in a bunker, on a submarine — if you have a laptop and a voice, WindyWord works."
+    answer: "No. Download your model packs once, and WindyWord works fully offline. By default, your voice stays on your device — that's not a feature, it's a philosophy. If you choose cloud mode, audio is encrypted and processed on WindyCloud servers, then deleted. But in local mode? Even in airplane mode, in a bunker, on a submarine — if you have a laptop and a voice, WindyWord works."
   },
   {
     question: "How much storage do the models need?",
@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: "Is my voice data private?",
-    answer: "With local processing, your voice data never leaves your device. Period. We don't collect telemetry. We don't phone home. We don't train on your audio. Even with Pro cloud sync, your data is encrypted end-to-end and stored on your personal WindyCloud vault. We couldn't read it if we wanted to."
+    answer: "In local mode, your voice data stays entirely on your device. We don't collect telemetry. We don't phone home. We don't train on your audio. If you opt into cloud processing or WindyCloud sync, your data is encrypted end-to-end and stored in your personal vault. We couldn't read it if we wanted to. You always control whether data leaves your device — it's a setting, not a surprise."
   },
   {
     question: "What makes this different from Whisper, Deepgram, or AssemblyAI?",

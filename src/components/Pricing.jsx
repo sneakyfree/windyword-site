@@ -17,7 +17,7 @@ const plans = [
       'Unlimited local transcriptions',
       'Download any model — all 2,000+',
       '5-minute recordings',
-      '100% offline — your data never leaves your device',
+      'Offline-capable — local by default, you choose if data ever leaves your device',
       'Open source models you OWN',
       'Commercial use allowed',
       'Community support'

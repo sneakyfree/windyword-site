@@ -35,7 +35,7 @@ const OpenSource = () => {
             {
               icon: '🛡️',
               title: 'Your Data Stays Yours',
-              description: 'Local processing = your voice never touches our servers. We don\'t collect usage data. We don\'t train on your audio. Period.',
+              description: 'Local processing by default = your voice stays on your device. Cloud is opt-in, never automatic. We don\'t collect usage data. We don\'t train on your audio.',
             },
           ].map((item, i) => (
             <motion.div
