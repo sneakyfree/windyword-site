@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: "Is my voice data private?",
-    answer: "In local mode, your voice data stays entirely on your device. We don't collect telemetry. We don't phone home. We don't train on your audio. If you opt into cloud processing or WindyCloud sync, your data is encrypted end-to-end and stored in your personal vault. We couldn't read it if we wanted to. You always control whether data leaves your device — it's a setting, not a surprise."
+    answer: "All three processing modes — Device Only, Device + WindyCloud, and Auto — are fully private. We don't collect telemetry. We don't phone home. We don't train on your audio. In Device Only mode, nothing ever leaves your machine. In cloud modes, your data is encrypted end-to-end and deleted after processing. You choose where your voice is processed — it's a setting, never a surprise."
   },
   {
     question: "What makes this different from Whisper, Deepgram, or AssemblyAI?",

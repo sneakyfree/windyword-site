@@ -36,7 +36,7 @@ const plans = [
       'Everything in Free, plus:',
       '30-minute recordings',
       'All 15 engines + 99 languages',
-      { text: 'Cloud STT via WindyCloud (blazing fast)', subscriptionOnly: true },
+      { text: 'Cloud processing via WindyCloud (blazing fast)', subscriptionOnly: true },
       'Sync transcriptions across all devices',
       'Batch mode — drop 50 files, walk away',
       'LLM polish — AI cleans up your transcript',
@@ -197,7 +197,7 @@ const Pricing = () => {
                 })}
               </ul>
               
-              {/* Cloud STT policy callout for Pro */}
+              {/* Processing mode callout for Pro */}
               {plan.highlight && (
                 <div className={`mb-4 px-4 py-3 rounded-lg text-xs font-semibold ${
                   billing === 'lifetime' 
@@ -205,8 +205,8 @@ const Pricing = () => {
                     : 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
                 }`}>
                   {billing === 'lifetime' 
-                    ? '🏠 Lifetime = Local engines only — Own Your Stack. No cloud dependency, ever.'
-                    : '☁️ Cloud STT included — powered by WindyCloud. Blazing fast, always up to date.'}
+                    ? '🏠 Lifetime = device-only processing. Your voice never leaves your machine. Always private.'
+                    : '🌪️ 3 processing modes: Device Only · Device + WindyCloud · Auto. All fully private — you choose where your voice is processed.'}
                 </div>
               )}
               
