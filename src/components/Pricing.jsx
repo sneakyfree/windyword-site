@@ -15,8 +15,9 @@ const plans = [
     tagline: 'Not a trial. Not a teaser. The real thing.',
     features: [
       'Auto-detects any of 99 languages',
-      'Download any model — all 2,000+',
-      '5-minute recordings',
+      'Download any model — all 3,500+',
+      '5-minute local recordings',
+      '1 device',
       'Offline-capable — local by default, you choose if data ever leaves your device',
       'Open source models you OWN',
       'Commercial use allowed',
@@ -32,10 +33,13 @@ const plans = [
     name: 'Windy Pro',
     price: { monthly: '$4.99', annual: '$49', lifetime: '$99' },
     period: { monthly: '/mo', annual: '/yr', lifetime: 'one-time' },
-    tagline: 'Cloud superpowers. 30-minute recordings. Everything synced.',
+    tagline: 'Unlimited local recording. 15-min cloud sessions. Everything synced.',
     features: [
       'Everything in Free, plus:',
-      '30-minute recordings',
+      'Unlimited local recording',
+      '15-minute cloud sessions',
+      '3 devices',
+      'Ad-free',
       'All 15 engines + 99 languages',
       { text: 'Cloud processing via WindyCloud (blazing fast)', subscriptionOnly: true },
       'Sync transcriptions across all devices',
@@ -56,15 +60,18 @@ const plans = [
     name: 'Windy Ultra',
     price: { monthly: '$8.99', annual: '$79', lifetime: '$199' },
     period: { monthly: '/mo', annual: '/yr', lifetime: 'one-time' },
-    tagline: 'Real-time translation. Conversation mode. The global communicator.',
+    tagline: 'Real-time translation. 30-min cloud. The global communicator.',
     features: [
       'Everything in Pro, plus:',
+      'Unlimited local recording',
+      '30-minute cloud sessions',
+      '5 devices',
+      'Ad-free',
       'Live translation — 5 language pairs',
       'Conversation mode — two people, two languages, one device',
       { text: 'Cloud translation API + Cloud processing', subscriptionOnly: true },
       '25 offline translation engines',
-      '10 GB WindyCloud storage',
-      'All Pro features included'
+      '10 GB WindyCloud storage'
     ],
     cta: 'Start Ultra — 14 Days Free',
     highlight: false,
@@ -76,10 +83,13 @@ const plans = [
     name: 'Windy Max',
     price: { monthly: '$14.99', annual: '$149', lifetime: '$299' },
     period: { monthly: '/mo', annual: '/yr', lifetime: 'one-time' },
-    tagline: 'The ultimate. 60-min recordings. 99 languages. Medical & legal grade.',
+    tagline: 'The ultimate. 60-min cloud. 99 languages. Medical & legal grade.',
     features: [
       'Everything in Ultra, plus:',
-      '60-minute recordings',
+      'Unlimited local recording',
+      '60-minute cloud sessions',
+      '10 devices',
+      'Ad-free',
       '99 translation language pairs',
       'Text-to-speech output',
       'Medical & legal glossaries',
@@ -100,7 +110,7 @@ function CompetitorComparison() {
   const competitors = [
     { name: 'Popular Dictation Apps', free: '5 min limit', paid: '$8–10/mo', paidFeatures: 'Short recordings, cloud-only', verdict: 'Our FREE tier = their paid tier' },
     { name: 'Meeting Transcription Tools', free: '300 min/mo cap', paid: '$15–20/mo', paidFeatures: 'Cloud-only, no offline mode', verdict: 'We\'re offline-first + unlimited local' },
-    { name: 'Premium Transcription Services', free: 'None', paid: '$25–30/mo', paidFeatures: 'Cloud-only, limited languages', verdict: 'We have 2,000+ specialist models — free' },
+    { name: 'Premium Transcription Services', free: 'None', paid: '$25–30/mo', paidFeatures: 'Cloud-only, limited languages', verdict: 'We have 3,500+ specialist models — free' },
   ];
 
   return (
@@ -271,8 +281,13 @@ const Pricing = () => {
                     : 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
                 }`}>
                   {billing === 'lifetime' 
-                    ? '🏠 Lifetime = device-only processing. Your voice never leaves your machine. Always private.'
+                    ? '🏠 Lifetime = local engines — Own Your Stack forever. Add ☁️ Cloud Boost ($2.99/mo) anytime.'
                     : '🌪️ 3 processing modes: Device Only · Device + WindyCloud · Auto. All fully private — you choose where your voice is processed.'}
+                </div>
+              )}
+              {billing === 'lifetime' && plan.name !== 'Free' && !plan.highlight && (
+                <div className="mb-4 px-4 py-3 rounded-lg text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  🏠 Local engines — Own Your Stack forever. Add ☁️ Cloud Boost ($2.99/mo) anytime.
                 </div>
               )}
               
@@ -306,7 +321,7 @@ const Pricing = () => {
           <div className="grid md:grid-cols-3 gap-4">
             {[
               { icon: '☁️', name: 'WindyCloud', hook: 'Need more storage? Sync your transcriptions, models, and voice data across every device.', url: 'https://windycloud.com' },
-              { icon: '✈️', name: 'WindyTraveler', hook: 'Traveling soon? Offline translation, AI tour guides, local deals — powered by 3,100+ specialist models.', url: 'https://windytraveler.com' },
+              { icon: '✈️', name: 'WindyTraveler', hook: 'Traveling soon? Offline translation, AI tour guides, local deals — powered by 3,500+ specialist models.', url: 'https://windytraveler.com' },
               { icon: '🧬', name: 'WindyClone', hook: 'Your recordings can build your digital twin. Same voice, any language. Your AI identity.', url: 'https://windyclone.ai' },
             ].map((p, i) => (
               <motion.a key={i} href={p.url} target="_blank" rel="noopener noreferrer"

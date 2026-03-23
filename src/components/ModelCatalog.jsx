@@ -23,40 +23,67 @@ const specialistModels = [
 
 const modelPacks = [
   {
-    name: 'Marco Polo Pack',
+    name: 'The Grand Tour',
+    emoji: '🇪🇺',
+    description: 'Paris to Prague to Porto. All of Europe covered with ~1,087 language pairs.',
+    pairs: '~1,087',
+    size: '$129',
+    highlight: 'Europe',
+    examples: ['EN↔FR', 'EN↔DE', 'EN↔ES', 'EN↔IT', 'EN↔PT', 'DE↔FR', 'ES↔IT', 'PL↔DE']
+  },
+  {
+    name: 'The Safari',
+    emoji: '🌍',
+    description: 'Cairo to Cape Town. All of Africa with ~200 language pairs.',
+    pairs: '~200',
+    size: '$79',
+    highlight: 'Africa',
+    examples: ['EN↔AR', 'EN↔SW', 'FR↔AR', 'EN↔AM', 'EN↔ZU', 'FR↔WO']
+  },
+  {
+    name: 'The Silk Road',
+    emoji: '🌏',
+    description: 'Dubai to Delhi. Middle East + Central + South Asia with ~75 language pairs.',
+    pairs: '~75',
+    size: '$59',
+    highlight: 'Middle East + South Asia',
+    examples: ['EN↔AR', 'EN↔HI', 'EN↔UR', 'EN↔FA', 'AR↔FA', 'HI↔UR']
+  },
+  {
+    name: 'The Dragon',
+    emoji: '🐉',
+    description: 'Tokyo to Beijing — 1.5 billion people. East Asia with ~45 language pairs.',
+    pairs: '~45',
+    size: '$49',
+    highlight: 'East Asia',
+    examples: ['EN↔ZH', 'EN↔JP', 'EN↔KO', 'ZH↔JP', 'ZH↔KO', 'JP↔KO']
+  },
+  {
+    name: 'The Archipelago',
+    emoji: '🌺',
+    description: 'Bali to Fiji. Southeast Asia + Pacific Islands with ~170 language pairs.',
+    pairs: '~170',
+    size: '$69',
+    highlight: 'Southeast Asia + Pacific',
+    examples: ['EN↔TH', 'EN↔VI', 'EN↔ID', 'EN↔TL', 'EN↔MS', 'TH↔VI']
+  },
+  {
+    name: 'The Explorer',
+    emoji: '🌎',
+    description: 'The Amazon to the Arctic. Americas + Caribbean + Sign Languages with ~75 pairs.',
+    pairs: '~75',
+    size: '$49',
+    highlight: 'Americas + Caribbean',
+    examples: ['EN↔ES', 'EN↔PT-BR', 'EN↔FR-CA', 'EN↔QU', 'EN↔ASL']
+  },
+  {
+    name: "Marco Polo's Magic Box",
     emoji: '🧭',
-    description: 'The essentials. 40 most-spoken language pairs for global communication.',
-    pairs: 40,
-    size: '20GB',
-    highlight: 'Most Popular',
-    examples: ['EN↔ES', 'EN↔ZH', 'EN↔FR', 'EN↔DE', 'EN↔JP', 'EN↔KO', 'EN↔AR', 'EN↔HI']
-  },
-  {
-    name: 'Traveler Pack',
-    emoji: '✈️',
-    description: 'Wanderlust edition. 60+ pairs covering every continent and tourist hotspot.',
-    pairs: 60,
-    size: '30GB',
-    highlight: 'Best for Travel',
-    examples: ['All Marco Polo +', 'TH↔EN', 'VI↔EN', 'TR↔EN', 'ID↔EN', 'EL↔EN', 'CZ↔EN']
-  },
-  {
-    name: 'Specialist Vault',
-    emoji: '🏥',
-    description: 'Industry-specific models. Medical, legal, technical, financial. Domain expertise that generic models can\'t touch.',
-    pairs: 120,
-    size: '60GB',
-    highlight: 'Highest Accuracy',
-    examples: ['Medical EN↔ES', 'Legal EN↔DE', 'Tech EN↔ZH', 'Finance EN↔JP']
-  },
-  {
-    name: 'Full Arsenal',
-    emoji: '👑',
-    description: 'Everything. All 2,000+ models. Every language, every domain, every variant. Own the complete stack.',
-    pairs: '2,000+',
-    size: '200GB',
-    highlight: 'Complete Ownership',
-    examples: ['Every pair', 'Every specialist', 'Every dialect', 'Beta models']
+    description: 'The whole world. Every language. One box. ALL language pairs — cheaper than buying all 6 packs individually.',
+    pairs: 'ALL',
+    size: '$399',
+    highlight: 'Everything',
+    examples: ['Every region', 'Every pair', 'Every specialist', 'Every domain']
   }
 ];
 
@@ -86,7 +113,7 @@ const ModelCatalog = () => {
             Open the <span className="text-gradient">Treasure Chest</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-2">
-            2,000+ specialized models. Each one a domain expert. Each one yours to keep.
+            3,500+ specialized models. Each one a domain expert. Each one yours to keep.
           </p>
           
           {/* Powered by badge */}
@@ -162,7 +189,7 @@ const ModelCatalog = () => {
             transition={{ delay: 0.6 }}
             className="text-center text-gray-600 text-sm mt-4"
           >
-            …and 1,984 more where these came from.
+            …and 3,484 more where these came from.
           </motion.p>
         </div>
         
@@ -202,7 +229,7 @@ const ModelCatalog = () => {
               </div>
               
               <button className="w-full px-4 py-3 bg-gradient-to-r from-windy-gold to-windy-amber text-windy-dark font-bold rounded-lg hover:scale-[1.02] transition-transform text-sm">
-                Download — Free
+                {pack.size.startsWith('$') ? `Get Pack — ${pack.size}` : `Download — ${pack.size}`}
               </button>
             </motion.div>
           ))}

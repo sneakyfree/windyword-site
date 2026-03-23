@@ -53,7 +53,7 @@ const Hero = () => {
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-windy-amber/10 border border-windy-amber/30 rounded-full text-sm">
             <span className="w-2 h-2 bg-windy-amber rounded-full animate-pulse"></span>
-            <span className="text-windy-amber font-medium">Powered by WindyTranslate — 2,000 specialized AI models</span>
+            <span className="text-windy-amber font-medium">Powered by WindyTranslate — 3,500+ specialized AI models</span>
           </span>
         </motion.div>
         
@@ -78,13 +78,13 @@ const Hero = () => {
           className="mb-10"
         >
           <p className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            2,000 AI models. Your voice.
+            3,500+ AI models. Your voice.
             <br />
             <span className="text-gradient">Zero cost. Forever.</span>
           </p>
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Not generic speech-to-text. <strong className="text-gray-200">Specialized pair translators</strong> that 
-            destroy Google Translate on accuracy. Download them. Own them. 
+            destroy general-purpose translators on accuracy. Download them. Own them. 
             Run them offline. No subscription. No catch.
           </p>
         </motion.div>
@@ -133,7 +133,7 @@ const Hero = () => {
           className="grid grid-cols-3 gap-6 max-w-3xl mx-auto"
         >
           <div className="p-4">
-            <div className="text-4xl md:text-5xl font-black text-gradient">2,000+</div>
+            <div className="text-4xl md:text-5xl font-black text-gradient">3,500+</div>
             <div className="text-sm md:text-base text-gray-500 mt-2 font-medium">Specialized Models</div>
           </div>
           <div className="p-4">

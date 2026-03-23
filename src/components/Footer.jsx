@@ -45,7 +45,7 @@ const Footer = () => {
               <span className="text-white">Word</span>
             </h3>
             <p className="text-gray-500 text-xs mb-4 leading-relaxed">
-              2,000 AI models. Your voice. Zero cost. Forever.
+              3,500+ AI models. Your voice. Zero cost. Forever.
             </p>
             
             {/* Powered by badge */}

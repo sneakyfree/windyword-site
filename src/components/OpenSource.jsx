@@ -23,7 +23,7 @@ const OpenSource = () => {
           {[
             {
               icon: '🤗',
-              title: '2,000+ Models on HuggingFace',
+              title: '3,500+ Models on HuggingFace',
               description: 'Download any model, inspect the weights, train your own variants. Full transparency. Full control.',
               link: { text: 'Browse Models →', url: '#' }
             },

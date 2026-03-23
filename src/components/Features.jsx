@@ -4,7 +4,7 @@ const features = [
   {
     icon: '🎯',
     title: 'Specialist, Not Generalist',
-    description: 'Each of our 2,000+ models is a pair specialist — trained obsessively on one language combination. English↔Spanish Medical isn\'t the same model as English↔Spanish Legal. That\'s why we win.',
+    description: 'Each of our 3,500+ models is a pair specialist — trained obsessively on one language combination. English↔Spanish Medical isn\'t the same model as English↔Spanish Legal. That\'s why we win.',
     highlight: 'Up to 96% accuracy on domain-specific content'
   },
   {
@@ -23,7 +23,7 @@ const features = [
     icon: '🧠',
     title: 'Powered by WindyTranslate',
     description: 'The world\'s largest catalog of specialized translation LLMs. Built by linguists. Perfected by AI. Every model trained on domain-specific corpora — medical, legal, technical, financial.',
-    highlight: '2,000+ models and growing'
+    highlight: '3,500+ models and growing'
   },
   {
     icon: '🌍',
@@ -58,7 +58,7 @@ const Features = () => {
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Generic voice-to-text tools use one model for everything. That's like hiring 
-            a general practitioner to do brain surgery. <strong className="text-gray-300">We hired 2,000 brain surgeons.</strong>
+            a general practitioner to do brain surgery. <strong className="text-gray-300">We hired 3,500+ brain surgeons.</strong>
           </p>
         </motion.div>
         

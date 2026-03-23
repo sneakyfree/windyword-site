@@ -4,7 +4,7 @@ import { useState } from 'react';
 const faqs = [
   {
     question: "Is WindyWord actually free? What's the catch?",
-    answer: "There is no catch. The core app with 2,000+ models, local transcription in any of 99 languages, and complete offline processing is free forever. We make money from Pro/Ultra/Max tiers (cloud processing, translation, advanced features) and the broader Windy ecosystem (WindyCloud, WindyClone, WindyChat). WindyWord being free and amazing is literally our business model — it's how people discover the ecosystem."
+    answer: "There is no catch. The core app with 3,500+ models, local transcription in any of 99 languages, and complete offline processing is free forever. We make money from Pro/Ultra/Max tiers (cloud processing, translation, advanced features) and the broader Windy ecosystem (WindyCloud, WindyClone, WindyChat). WindyWord being free and amazing is literally our business model — it's how people discover the ecosystem."
   },
   {
     question: "Why are specialized models better than generic ones?",
@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     question: "How much storage do the models need?",
-    answer: "Marco Polo Pack (40 essential pairs) = ~20GB. Traveler Pack (60+ pairs) = ~30GB. Specialist Vault (120 domain models) = ~60GB. Full Arsenal (all 2,000+) = ~200GB. Download only what you need — you can always grab more later."
+    answer: "Regional packs let you download models by region: The Grand Tour (Europe, ~1,087 pairs) = $129. The Safari (Africa, ~200 pairs) = $79. The Silk Road (Middle East + Central/South Asia, ~75 pairs) = $59. The Dragon (East Asia, ~45 pairs) = $49. The Archipelago (Southeast Asia + Pacific, ~170 pairs) = $69. The Explorer (Americas + Caribbean, ~75 pairs) = $49. Or get Marco Polo's Magic Box — ALL language pairs — for $399. Download only what you need — you can always grab more later."
   },
   {
     question: "Can I use this for my business?",
