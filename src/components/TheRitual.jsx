@@ -3,30 +3,30 @@ import { motion } from 'framer-motion';
 const steps = [
   {
     number: '01',
-    title: 'Download',
-    description: 'Grab WindyWord. Pick a model pack — or download them all. Install takes 30 seconds.',
-    icon: '⬇️',
+    title: 'Summon',
+    description: 'Download WindyWord. Choose your specialist models. Installation takes 30 seconds. Your voice AI awakens.',
+    icon: '⚡',
     detail: 'Mac · Windows · Linux'
   },
   {
     number: '02',
     title: 'Speak',
-    description: 'Hit record. Talk in any language. The specialist model for your language pair activates automatically.',
+    description: 'Just talk. Speak naturally in any language — your words become text instantly. The right specialist model activates automatically. No configuration, no menus, no friction.',
     icon: '🎤',
-    detail: '100+ languages · auto-detect'
+    detail: '99+ languages · auto-detect'
   },
   {
     number: '03',
-    title: 'Own It',
-    description: 'Get domain-accurate transcriptions instantly. Export, edit, sync to cloud, or feed to WindyClone. Your data, your rules.',
+    title: 'Create',
+    description: 'Paste your text wherever your cursor is blinking — emails, documents, code editors, chat apps. Your spoken words, converted to text, ready to use. No typing. Ever.',
     icon: '✨',
-    detail: 'Local · Private · Yours'
+    detail: 'Paste anywhere · No typing · No internet needed'
   }
 ];
 
-const HowItWorks = () => {
+const TheRitual = () => {
   return (
-    <section id="how-it-works" className="py-24 px-6 bg-windy-gray relative overflow-hidden">
+    <section id="the-ritual" className="py-24 px-6 bg-windy-gray relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,10 +36,10 @@ const HowItWorks = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-black mb-4">
-            Download. Speak. <span className="text-gradient">Own It.</span>
+            The <span className="text-gradient">Ritual</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            No account creation. No API keys. No tutorials needed.
+            Three steps. No complexity. No ceremony required.
           </p>
         </motion.div>
         
@@ -79,7 +79,7 @@ const HowItWorks = () => {
           className="text-center mt-12"
         >
           <p className="text-gray-500 text-sm">
-            Ready for more? Your transcriptions can sync to <span className="text-windy-amber">WindyCloud</span>, 
+            Ready for more? Your creations can sync to <span className="text-windy-amber">WindyCloud</span>, 
             become a voice clone with <span className="text-windy-amber">WindyClone</span>, 
             or power real-time conversations in <span className="text-windy-amber">WindyChat</span>.
           </p>
@@ -89,4 +89,4 @@ const HowItWorks = () => {
   );
 };
 
-export default HowItWorks;
+export default TheRitual;

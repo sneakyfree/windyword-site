@@ -1,15 +1,15 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import LiveDemo from './components/LiveDemo';
-import Features from './components/Features';
-import ModelCatalog from './components/ModelCatalog';
-import HowItWorks from './components/HowItWorks';
-import Testimonials from './components/Testimonials';
-import Pricing from './components/Pricing';
-import Ecosystem from './components/Ecosystem';
-import Download from './components/Download';
-import OpenSource from './components/OpenSource';
-import FAQ from './components/FAQ';
+import TheWord from './components/TheWord';
+import Powers from './components/Powers';
+import TheVault from './components/TheVault';
+import TheRitual from './components/TheRitual';
+import Voices from './components/Voices';
+import Offering from './components/Offering';
+import Kingdom from './components/Kingdom';
+import Claim from './components/Claim';
+import Covenant from './components/Covenant';
+import Scrolls from './components/Scrolls';
 import Footer from './components/Footer';
 
 function App() {
@@ -17,16 +17,16 @@ function App() {
     <div className="min-h-screen bg-windy-dark">
       <Navbar />
       <Hero />
-      <LiveDemo />
-      <Features />
-      <ModelCatalog />
-      <HowItWorks />
-      <Testimonials />
-      <Pricing />
-      <Ecosystem />
-      <Download />
-      <OpenSource />
-      <FAQ />
+      <TheWord />
+      <Powers />
+      <TheVault />
+      <TheRitual />
+      <Voices />
+      <Offering />
+      <Kingdom />
+      <Claim />
+      <Covenant />
+      <Scrolls />
       <Footer />
     </div>
   );

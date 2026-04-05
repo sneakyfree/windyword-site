@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 
-const OpenSource = () => {
+const Covenant = () => {
   return (
-    <section id="open-source" className="py-24 px-6 bg-windy-gray relative overflow-hidden">
+    <section id="covenant" className="py-24 px-6 bg-windy-gray relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -12,10 +12,10 @@ const OpenSource = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-6xl font-black mb-4">
-            Not Renting. <span className="text-gradient">Owning.</span>
+            The <span className="text-gradient">Covenant</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Every model is open source. Every byte is yours. We don't believe in locking AI behind paywalls.
+            Not renting. Not licensing. Owning.
           </p>
         </motion.div>
         
@@ -23,18 +23,18 @@ const OpenSource = () => {
           {[
             {
               icon: '🤗',
-              title: '3,500+ Models on HuggingFace',
+              title: 'Open Source. Open Soul.',
               description: 'Download any model, inspect the weights, train your own variants. Full transparency. Full control.',
               link: { text: 'Browse Models →', url: '#' }
             },
             {
               icon: '🔓',
-              title: 'Zero Vendor Lock-In',
+              title: 'No Kill Switch. Ever.',
               description: 'If WindyWord disappeared tomorrow, your models still work. No kill switches. No phone-home requirements. No expiration.',
             },
             {
               icon: '🛡️',
-              title: 'Your Data Stays Yours',
+              title: 'Your Voice Is Your Temple',
               description: 'Local processing by default = your voice stays on your device. Cloud is opt-in, never automatic. We don\'t collect usage data. We don\'t train on your audio.',
             },
           ].map((item, i) => (
@@ -109,4 +109,4 @@ const OpenSource = () => {
   );
 };
 
-export default OpenSource;
+export default Covenant;

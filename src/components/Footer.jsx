@@ -14,7 +14,7 @@ const Footer = () => {
   
   const resources = [
     { name: 'Documentation', url: '#' },
-    { name: 'Model Catalog', url: '#models' },
+    { name: 'Model Catalog', url: '#the-vault' },
     { name: 'API Reference', url: '#' },
     { name: 'GitHub', url: '#' },
     { name: 'HuggingFace', url: '#' }
@@ -45,7 +45,7 @@ const Footer = () => {
               <span className="text-white">Word</span>
             </h3>
             <p className="text-gray-500 text-xs mb-4 leading-relaxed">
-              3,500+ AI models. Your voice. Zero cost. Forever.
+              Speak it into existence. 🌪️
             </p>
             
             {/* Powered by badge */}
@@ -128,7 +128,7 @@ const Footer = () => {
             © {currentYear} WindyWord. Part of the Windy Empire.
           </p>
           <p className="text-gray-700 text-xs">
-            Built for a multilingual world 🌍
+            In the beginning was the Word. 🌪️
           </p>
         </div>
       </div>

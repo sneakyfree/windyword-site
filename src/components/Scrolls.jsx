@@ -36,11 +36,11 @@ const faqs = [
   }
 ];
 
-const FAQ = () => {
+const Scrolls = () => {
   const [openIndex, setOpenIndex] = useState(null);
   
   return (
-    <section id="faq" className="py-24 px-6 bg-windy-gray">
+    <section id="scrolls" className="py-24 px-6 bg-windy-gray">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -50,8 +50,9 @@ const FAQ = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-black mb-4">
-            <span className="text-gradient">Questions? Answered.</span>
+            <span className="text-gradient">The Scrolls</span>
           </h2>
+          <p className="text-xl text-gray-400">Ancient questions. Modern answers.</p>
         </motion.div>
         
         <div className="space-y-3">
@@ -120,4 +121,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default Scrolls;

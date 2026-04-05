@@ -10,7 +10,7 @@ const languages = [
   { code: 'AR', flag: '🇸🇦', name: 'Arabic', text: 'يعاني المريض من أعراض تنفسية حادة ويحتاج إلى تقييم فوري.' },
 ];
 
-const LiveDemo = () => {
+const TheWord = () => {
   const [charIndex, setCharIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
@@ -19,7 +19,6 @@ const LiveDemo = () => {
     if (!isPlaying) return;
     const maxLen = Math.max(...languages.map(l => l.text.length));
     if (charIndex >= maxLen) {
-      // Reset after pause
       const t = setTimeout(() => { setCharIndex(0); }, 2000);
       return () => clearTimeout(t);
     }
@@ -44,13 +43,12 @@ const LiveDemo = () => {
           viewport={{ once: true }}
           className="text-center mb-8"
         >
-          <p className="text-sm text-gray-500 uppercase tracking-widest mb-3 font-semibold">See It In Action</p>
+          <p className="text-sm text-gray-500 uppercase tracking-widest mb-3 font-semibold">Let There Be Text</p>
           <h2 className="text-3xl md:text-5xl font-black mb-3">
             One Voice. <span className="text-gradient">Five Languages. Simultaneously.</span>
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto text-sm">
-            Watch a single English sentence transcribed across 5 specialist models — each one 
-            trained for its specific language pair and medical domain.
+            Watch your spoken word become reality — simultaneously, in five languages, with domain-level precision.
           </p>
         </motion.div>
         
@@ -67,7 +65,7 @@ const LiveDemo = () => {
             <div className="flex items-center gap-2">
               <div className={`w-2.5 h-2.5 rounded-full ${isPlaying ? 'bg-red-500 animate-pulse' : 'bg-gray-600'}`}></div>
               <span className="text-xs text-gray-400 font-mono">
-                {isPlaying ? 'TRANSCRIBING' : 'READY'}
+                {isPlaying ? 'CREATING' : 'READY'}
               </span>
               <span className="text-xs text-gray-600">· Medical Domain · 5 Models Active</span>
             </div>
@@ -136,11 +134,11 @@ const LiveDemo = () => {
           transition={{ delay: 0.5 }}
           className="text-center text-xs text-gray-600 mt-4"
         >
-          All processing happens locally on your device. Zero data transmitted.
+          Your voice becomes text on your device. No internet. No upload. No cloud. Just instant voice-to-text.
         </motion.p>
       </div>
     </section>
   );
 };
 
-export default LiveDemo;
+export default TheWord;

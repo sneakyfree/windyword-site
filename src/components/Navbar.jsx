@@ -12,10 +12,10 @@ const Navbar = () => {
   }, []);
   
   const navLinks = [
-    { name: 'Features', href: '#features' },
-    { name: 'Models', href: '#models' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Ecosystem', href: '#ecosystem' },
+    { name: 'Powers', href: '#powers' },
+    { name: 'The Vault', href: '#the-vault' },
+    { name: 'Offering', href: '#offering' },
+    { name: 'Kingdom', href: '#kingdom' },
   ];
   
   return (
@@ -47,10 +47,10 @@ const Navbar = () => {
               </a>
             ))}
             <a 
-              href="#download"
+              href="#claim"
               className="px-5 py-2 bg-gradient-to-r from-windy-gold to-windy-amber text-windy-dark font-bold text-sm rounded-lg hover:scale-105 transition-transform"
             >
-              Download Free
+              Speak Now
             </a>
           </div>
           
@@ -86,11 +86,11 @@ const Navbar = () => {
               </a>
             ))}
             <a 
-              href="#download"
+              href="#claim"
               onClick={() => setMobileMenuOpen(false)}
               className="block w-full mt-4 px-6 py-3 bg-gradient-to-r from-windy-gold to-windy-amber text-windy-dark font-bold text-center rounded-lg"
             >
-              Download Free
+              Speak Now
             </a>
           </motion.div>
         )}

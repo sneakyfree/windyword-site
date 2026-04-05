@@ -8,9 +8,9 @@ const platforms = [
   { name: 'Android', icon: '🤖', status: 'coming-soon', url: '#' },
 ];
 
-const Download = () => {
+const Claim = () => {
   return (
-    <section id="download" className="py-24 px-6 bg-windy-dark relative overflow-hidden">
+    <section id="claim" className="py-24 px-6 bg-windy-dark relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-windy-amber/5 rounded-full blur-[150px] pointer-events-none"></div>
       
@@ -23,11 +23,10 @@ const Download = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-6xl font-black mb-4">
-            <span className="text-gradient">Claim Your Voice AI</span>
+            <span className="text-gradient">Claim Your Voice</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Join 50,000+ creators, translators, and professionals who already own their voice stack. 
-            No sign-up. No credit card. Just download and go.
+            Join 50,000+ people who retired their keyboards. Speak and your words become text — instantly, locally, no internet needed. Paste anywhere.
           </p>
         </motion.div>
         
@@ -72,13 +71,13 @@ const Download = () => {
           className="text-center"
         >
           <button className="group relative px-14 py-6 bg-gradient-to-r from-windy-gold to-windy-amber text-windy-dark font-black text-2xl rounded-xl hover:scale-105 transition-all border-glow overflow-hidden">
-            <span className="relative z-10">Download Free Now</span>
+            <span className="relative z-10">Speak It Into Existence</span>
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-windy-gold opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </button>
           
           <div className="mt-6 space-y-1">
             <p className="text-sm text-gray-500">
-              No account required · No credit card · No tracking · Just AI you own
+              No account · No credit card · No internet required · Just voice-to-text
             </p>
             <p className="text-xs text-gray-600">
               v1.0 · macOS 11+ · Windows 10+ · Ubuntu 20.04+ · 4GB RAM minimum
@@ -111,4 +110,4 @@ const Download = () => {
   );
 };
 
-export default Download;
+export default Claim;

@@ -14,9 +14,9 @@ const plans = [
     period: { monthly: 'forever', annual: 'forever', lifetime: 'forever' },
     tagline: 'Not a trial. Not a teaser. The real thing.',
     features: [
+      '2 voice engines',
       'Auto-detects any of 99 languages',
-      'Download any model — all 3,500+',
-      '5-minute local recordings',
+      '5-minute voice-to-text sessions (local)',
       '1 device',
       'Offline-capable — local by default, you choose if data ever leaves your device',
       'Open source models you OWN',
@@ -27,20 +27,19 @@ const plans = [
     cta: 'Download Free',
     highlight: false,
     note: 'No sign-up. No credit card. No catch.',
-    comparison: null,
   },
   {
     name: 'Windy Pro',
     price: { monthly: '$4.99', annual: '$49', lifetime: '$99' },
     period: { monthly: '/mo', annual: '/yr', lifetime: 'one-time' },
-    tagline: 'Unlimited local recording. 15-min cloud sessions. Everything synced.',
+    tagline: 'All 15 voice engines. Unlimited local. Cloud sync.',
     features: [
       'Everything in Free, plus:',
-      'Unlimited local recording',
-      '15-minute cloud sessions',
+      'All 15 voice engines + 99 languages',
+      'Unlimited local voice-to-text — speak all day, no internet needed',
+      { text: '15-minute cloud voice-to-text sessions', subscriptionOnly: true },
       '3 devices',
       'Ad-free',
-      'All 15 engines + 99 languages',
       { text: 'Cloud processing via WindyCloud (blazing fast)', subscriptionOnly: true },
       'Sync transcriptions across all devices',
       'Batch mode — drop 50 files, walk away',
@@ -54,21 +53,18 @@ const plans = [
     highlight: true,
     badge: 'RECOMMENDED',
     note: 'Cancel anytime. Free tier keeps working forever.',
-    comparison: null,
   },
   {
     name: 'Windy Ultra',
     price: { monthly: '$8.99', annual: '$79', lifetime: '$199' },
     period: { monthly: '/mo', annual: '/yr', lifetime: 'one-time' },
-    tagline: 'Real-time translation. 30-min cloud. The global communicator.',
+    tagline: 'Live translation. Conversation mode. The global communicator.',
     features: [
       'Everything in Pro, plus:',
-      'Unlimited local recording',
-      '30-minute cloud sessions',
-      '5 devices',
-      'Ad-free',
       'Live translation — 5 language pairs',
       'Conversation mode — two people, two languages, one device',
+      { text: '30-minute cloud voice-to-text sessions', subscriptionOnly: true },
+      '5 devices',
       { text: 'Cloud translation API + Cloud processing', subscriptionOnly: true },
       '25 offline translation engines',
       '10 GB WindyCloud storage'
@@ -77,22 +73,19 @@ const plans = [
     highlight: false,
     badge: 'NEW',
     note: 'Cancel anytime. Downgrades to Pro features.',
-    comparison: null,
   },
   {
     name: 'Windy Max',
     price: { monthly: '$14.99', annual: '$149', lifetime: '$299' },
     period: { monthly: '/mo', annual: '/yr', lifetime: 'one-time' },
-    tagline: 'The ultimate. 60-min cloud. 99 languages. Medical & legal grade.',
+    tagline: 'The ultimate. 99 languages. Medical & legal grade.',
     features: [
       'Everything in Ultra, plus:',
-      'Unlimited local recording',
-      '60-minute cloud sessions',
-      '10 devices',
-      'Ad-free',
       '99 translation language pairs',
       'Text-to-speech output',
       'Medical & legal glossaries',
+      { text: '60-minute cloud voice-to-text sessions', subscriptionOnly: true },
+      '10 devices',
       { text: 'Priority cloud processing — fastest queue', subscriptionOnly: true },
       '100 offline translation engines',
       'Offline translation — no internet needed',
@@ -102,7 +95,6 @@ const plans = [
     highlight: false,
     badge: 'ULTIMATE',
     note: 'Cancel anytime. The full Windy experience.',
-    comparison: null,
   }
 ];
 
@@ -150,11 +142,11 @@ function CompetitorComparison() {
   );
 }
 
-const Pricing = () => {
+const Offering = () => {
   const [billing, setBilling] = useState('lifetime');
 
   return (
-    <section id="pricing" className="py-24 px-6 bg-windy-dark relative overflow-hidden">
+    <section id="offering" className="py-24 px-6 bg-windy-dark relative overflow-hidden">
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-windy-amber/3 rounded-full blur-[120px] pointer-events-none"></div>
       
       <div className="max-w-6xl mx-auto relative z-10">
@@ -166,16 +158,15 @@ const Pricing = () => {
           className="text-center mb-10"
         >
           <h2 className="text-4xl md:text-6xl font-black mb-4">
-            Free Isn't the <span className="text-gradient">Catch</span>. It's the <span className="text-gradient">Point</span>.
+            The <span className="text-gradient">Offering</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            We believe voice AI should be accessible to everyone. The free tier isn't crippled — 
-            it's the full product. Pro adds cloud convenience for power users.
+            Free isn't the catch. It's the covenant. We believe voice AI belongs to everyone.
           </p>
         </motion.div>
 
         {/* Billing toggle */}
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center mb-6">
           <div className="inline-flex bg-windy-gray/80 rounded-xl p-1 border border-gray-800/60">
             {billingOptions.map(t => (
               <button key={t.key} onClick={() => setBilling(t.key)}
@@ -191,6 +182,45 @@ const Pricing = () => {
             ))}
           </div>
         </div>
+
+        {/* Lifetime explainer banner */}
+        {billing === 'lifetime' && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="max-w-4xl mx-auto mb-10 p-5 rounded-2xl border-2 border-purple-500/40 bg-gradient-to-r from-purple-500/10 via-purple-500/5 to-purple-500/10"
+          >
+            <div className="flex items-start gap-4">
+              <span className="text-3xl flex-shrink-0">🏠</span>
+              <div>
+                <h4 className="text-lg font-black text-purple-300 mb-1">Lifetime = Local Engines Only</h4>
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  Lifetime purchases give you <strong className="text-white">permanent ownership of all local voice engines and offline translation models</strong>. 
+                  Run them forever on your devices — no internet, no subscription, no expiration.
+                </p>
+                <p className="text-sm text-gray-400 mt-2 leading-relaxed">
+                  <strong className="text-purple-300">Cloud features</strong> (cloud sessions, cloud processing, cloud translation API) 
+                  require an active subscription or the <span className="text-purple-300 font-semibold">☁️ Cloud Boost add-on ($2.99/mo)</span>. 
+                  Cloud features are marked <span className="line-through text-gray-500">like this</span> below.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {billing === 'monthly' || billing === 'annual' ? (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="max-w-4xl mx-auto mb-10 p-4 rounded-xl border border-blue-500/30 bg-blue-500/5 text-center"
+          >
+            <p className="text-sm text-blue-300">
+              🌪️ Subscriptions include <strong>everything</strong> — local engines + cloud sessions + cloud processing. All 3 modes: Device Only · Device + WindyCloud · Auto.
+            </p>
+          </motion.div>
+        ) : null}
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
@@ -238,17 +268,17 @@ const Pricing = () => {
                 )}
                 {billing === 'lifetime' && plan.name === 'Windy Pro' && (
                   <div className="mt-2">
-                    <span className="text-xs text-green-400 font-bold">Pays for itself in 20 months. Own it forever.</span>
+                    <span className="text-xs text-green-400 font-bold">Own all 15 local voice engines forever. No subscription needed for offline use.</span>
                   </div>
                 )}
                 {billing === 'lifetime' && plan.name === 'Windy Ultra' && (
                   <div className="mt-2">
-                    <span className="text-xs text-green-400 font-bold">Pays for itself in 22 months. Own it forever.</span>
+                    <span className="text-xs text-green-400 font-bold">Own all engines + 25 offline translation models forever. Cloud features optional ($2.99/mo).</span>
                   </div>
                 )}
                 {billing === 'lifetime' && plan.name === 'Windy Max' && (
                   <div className="mt-2">
-                    <span className="text-xs text-green-400 font-bold">Pays for itself in 20 months. Own it forever.</span>
+                    <span className="text-xs text-green-400 font-bold">Own everything local — 100 offline translation engines + medical/legal glossaries. Cloud optional ($2.99/mo).</span>
                   </div>
                 )}
               </div>
@@ -264,9 +294,9 @@ const Pricing = () => {
                       <svg className="w-5 h-5 text-windy-amber flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-gray-300 text-sm">
+                      <span className={`text-sm ${dimmed ? 'line-through text-gray-600' : 'text-gray-300'}`}>
                         {text}
-                        {dimmed && <span className="text-gray-600 text-xs ml-1">(subscription only)</span>}
+                        {dimmed && <span className="no-underline text-purple-400/70 text-xs ml-1 font-semibold" style={{textDecoration: 'none', display: 'inline'}}> ☁️ subscription</span>}
                       </span>
                     </li>
                   );
@@ -287,7 +317,7 @@ const Pricing = () => {
               )}
               {billing === 'lifetime' && plan.name !== 'Free' && !plan.highlight && (
                 <div className="mb-4 px-4 py-3 rounded-lg text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">
-                  🏠 Local engines — Own Your Stack forever. Add ☁️ Cloud Boost ($2.99/mo) anytime.
+                  🏠 Lifetime = local engines — Own Your Stack forever. Add ☁️ Cloud Boost ($2.99/mo) anytime.
                 </div>
               )}
               
@@ -352,4 +382,4 @@ const Pricing = () => {
   );
 };
 
-export default Pricing;
+export default Offering;

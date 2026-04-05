@@ -39,9 +39,9 @@ const products = [
   },
 ];
 
-const Ecosystem = () => {
+const Kingdom = () => {
   return (
-    <section id="ecosystem" className="py-24 px-6 bg-windy-gray relative overflow-hidden">
+    <section id="kingdom" className="py-24 px-6 bg-windy-gray relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-windy-amber/3 rounded-full blur-[120px] pointer-events-none"></div>
       
@@ -54,11 +54,10 @@ const Ecosystem = () => {
           className="text-center mb-6"
         >
           <h2 className="text-4xl md:text-6xl font-black mb-6">
-            Your Voice Data Is <span className="text-gradient">Gold</span>
+            Your Voice Builds a <span className="text-gradient">Kingdom</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            WindyWord is the door. Behind it is an entire ecosystem where your voice 
-            becomes your most powerful digital asset.
+            WindyWord is the gate. Behind it: an empire where your voice becomes your most powerful asset.
           </p>
         </motion.div>
         
@@ -71,10 +70,10 @@ const Ecosystem = () => {
           className="max-w-3xl mx-auto mb-16 text-center"
         >
           <p className="text-lg text-gray-300 leading-relaxed italic">
-            "You just transcribed 100 hours of meetings. That voice data is <strong className="text-windy-amber not-italic">GOLD</strong>. 
-            WindyClone can turn it into your digital twin. WindyCloud can keep it safe forever. 
-            WindyChat lets your clone speak your words in 100 languages. 
-            You're one click away from <strong className="text-windy-amber not-italic">owning your AI identity</strong>."
+            "You just spoke 100 hours of meetings into existence. That voice data is <strong className="text-windy-amber not-italic">GOLD</strong>. 
+            WindyClone turns it into your digital twin. WindyCloud keeps it immortal. 
+            WindyChat lets your twin speak YOUR words in 100 languages. 
+            You're one spoken word away from <strong className="text-windy-amber not-italic">owning your AI identity</strong>."
           </p>
         </motion.div>
         
@@ -138,7 +137,7 @@ const Ecosystem = () => {
           className="text-center mt-16"
         >
           <p className="text-2xl md:text-3xl font-black text-gray-300">
-            One account. One ecosystem. <span className="text-gradient">Your voice is the key.</span>
+            One voice. One kingdom. <span className="text-gradient">Speak and it shall be built.</span>
           </p>
         </motion.div>
       </div>
@@ -146,4 +145,4 @@ const Ecosystem = () => {
   );
 };
 
-export default Ecosystem;
+export default Kingdom;

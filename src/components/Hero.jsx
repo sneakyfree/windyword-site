@@ -1,12 +1,106 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import Waveform from './Waveform';
 
+const creatorImages = [
+  '/images/creators/creator-cosmos-1.jpg',
+  '/images/creators/creator-v2-1.jpg',
+  '/images/creators/creator-cosmos-2.jpg',
+  '/images/creators/creator-v2-2.jpg',
+  '/images/creators/creator-v3-1.jpg',
+  '/images/creators/creator-v2-3.jpg',
+  '/images/creators/creator-v3-2.jpg',
+  '/images/creators/creator-v2-4.jpg',
+  '/images/creators/creator-v3-3.jpg',
+  '/images/creators/creator-v2-5.jpg',
+  '/images/creators/creator-v3-4.jpg',
+  '/images/creators/creator-1.jpg',
+  '/images/creators/creator-2.jpg',
+  '/images/creators/creator-3.jpg',
+];
+
 const Hero = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage(prev => (prev + 1) % creatorImages.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="min-h-screen flex flex-col justify-center items-center px-6 py-20 relative overflow-hidden">
       {/* Deep background gradient */}
       <div className="absolute inset-0 bg-gradient-radial from-windy-gray via-windy-dark to-black"></div>
       
+      {/* === CREATOR IMAGE CROSSFADE === */}
+      <div className="absolute inset-0 pointer-events-none">
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={currentImage}
+            className="absolute inset-0 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.22 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 3, ease: "easeInOut" }}
+          >
+            <img 
+              src={creatorImages[currentImage]}
+              alt=""
+              className="max-h-full max-w-full object-contain"
+              style={{ filter: 'brightness(0.9) contrast(1.1)' }}
+            />
+          </motion.div>
+        </AnimatePresence>
+        
+        {/* Lightning flash effect */}
+        <motion.div
+          className="absolute inset-0"
+          animate={{
+            opacity: [0, 0, 0, 0.15, 0, 0.08, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(251,191,36,0.6) 0%, rgba(251,191,36,0.1) 40%, transparent 70%)' }}
+        />
+        
+        {/* Shimmer particles floating across the creator */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`shimmer-${i}`}
+            className="absolute rounded-full"
+            style={{
+              width: `${3 + Math.random() * 5}px`,
+              height: `${3 + Math.random() * 5}px`,
+              left: `${20 + Math.random() * 60}%`,
+              top: `${10 + Math.random() * 70}%`,
+              background: `radial-gradient(circle, rgba(251,191,36,0.9) 0%, transparent 70%)`,
+              boxShadow: '0 0 8px rgba(251,191,36,0.5)',
+            }}
+            animate={{
+              opacity: [0, 0.8, 0],
+              y: [0, -30 - Math.random() * 40],
+              x: [0, (Math.random() - 0.5) * 30],
+              scale: [0.5, 1.2, 0.3],
+            }}
+            transition={{
+              duration: 2 + Math.random() * 3,
+              repeat: Infinity,
+              delay: Math.random() * 8,
+              ease: "easeOut",
+            }}
+          />
+        ))}
+        
+        {/* Dark vignette overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40"></div>
+      </div>
+
       {/* Sound ring pulses behind everything */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
         <div className="w-[600px] h-[600px] rounded-full border border-windy-amber/10 sound-ring"></div>
@@ -14,7 +108,7 @@ const Hero = () => {
         <div className="absolute inset-0 w-[600px] h-[600px] rounded-full border border-windy-amber/10 sound-ring-delayed-2"></div>
       </div>
       
-      {/* Floating particles - more of them, varied sizes */}
+      {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(40)].map((_, i) => (
           <motion.div
@@ -44,16 +138,16 @@ const Hero = () => {
       </div>
       
       <div className="relative z-10 max-w-6xl mx-auto text-center">
-        {/* Powered by badge */}
+        {/* Voice-First badge */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-6"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-windy-amber/10 border border-windy-amber/30 rounded-full text-sm">
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-windy-amber/10 border border-windy-amber/30 rounded-full text-sm backdrop-blur-sm">
             <span className="w-2 h-2 bg-windy-amber rounded-full animate-pulse"></span>
-            <span className="text-windy-amber font-medium">Powered by WindyTranslate — 3,500+ specialized AI models</span>
+            <span className="text-windy-amber font-medium">🎤 Voice-First AI — No Keyboard Required</span>
           </span>
         </motion.div>
         
@@ -64,28 +158,28 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="mb-6"
         >
-          <h1 className="text-7xl md:text-9xl font-black mb-2 tracking-tight">
+          <h1 className="text-7xl md:text-9xl font-black mb-2 tracking-tight drop-shadow-2xl">
             <span className="text-gradient glow">Windy</span>
             <span className="text-white">Word</span>
           </h1>
         </motion.div>
         
-        {/* The Hook - THE holy shit line */}
+        {/* THE HOOK */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mb-10"
         >
-          <p className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            3,500+ AI models. Your voice.
+          <p className="text-3xl md:text-5xl font-bold mb-4 leading-tight drop-shadow-lg">
+            You were never meant to type your vision.
             <br />
-            <span className="text-gradient">Zero cost. Forever.</span>
+            <span className="text-gradient">Speak it into existence.</span>
           </p>
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Not generic speech-to-text. <strong className="text-gray-200">Specialized pair translators</strong> that 
-            destroy general-purpose translators on accuracy. Download them. Own them. 
-            Run them offline. No subscription. No catch.
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+            You speak. Text appears. Paste it wherever your cursor is blinking — emails, documents, 
+            code, notes, messages. All day. No internet required. Never touch a keyboard to type again. 
+            <strong className="text-white">Life will never be the same.</strong>
           </p>
         </motion.div>
         
@@ -99,29 +193,19 @@ const Hero = () => {
           <Waveform />
         </motion.div>
         
-        {/* The Accuracy Hook - "holy shit" comparison */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mb-10"
-        >
-          <AccuracyComparison />
-        </motion.div>
-        
         {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
         >
           <button className="group px-10 py-5 bg-gradient-to-r from-windy-gold to-windy-amber text-windy-dark font-black text-xl rounded-xl hover:scale-105 transition-all border-glow relative overflow-hidden">
-            <span className="relative z-10">Download Free</span>
+            <span className="relative z-10">Claim Your Voice</span>
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-windy-gold opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </button>
-          <button className="px-10 py-5 bg-transparent border-2 border-windy-amber/60 text-windy-amber font-bold text-xl rounded-xl hover:bg-windy-amber/10 hover:border-windy-amber transition-all">
-            Try in Browser →
+          <button className="px-10 py-5 bg-transparent border-2 border-windy-amber/60 text-windy-amber font-bold text-xl rounded-xl hover:bg-windy-amber/10 hover:border-windy-amber transition-all backdrop-blur-sm">
+            Watch the Vision →
           </button>
         </motion.div>
         
@@ -129,20 +213,20 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.0 }}
+          transition={{ duration: 1, delay: 0.8 }}
           className="grid grid-cols-3 gap-6 max-w-3xl mx-auto"
         >
           <div className="p-4">
-            <div className="text-4xl md:text-5xl font-black text-gradient">3,500+</div>
-            <div className="text-sm md:text-base text-gray-500 mt-2 font-medium">Specialized Models</div>
+            <div className="text-4xl md:text-5xl font-black text-gradient">∞</div>
+            <div className="text-sm md:text-base text-gray-500 mt-2 font-medium">Unlimited Voice-to-Text</div>
           </div>
           <div className="p-4">
-            <div className="text-4xl md:text-5xl font-black text-gradient">100+</div>
+            <div className="text-4xl md:text-5xl font-black text-gradient">99+</div>
             <div className="text-sm md:text-base text-gray-500 mt-2 font-medium">Languages</div>
           </div>
           <div className="p-4">
             <div className="text-4xl md:text-5xl font-black text-gradient">$0</div>
-            <div className="text-sm md:text-base text-gray-500 mt-2 font-medium">Forever</div>
+            <div className="text-sm md:text-base text-gray-500 mt-2 font-medium">Forever Free</div>
           </div>
         </motion.div>
       </div>
@@ -158,75 +242,6 @@ const Hero = () => {
         </svg>
       </motion.div>
     </section>
-  );
-};
-
-/* Accuracy Comparison - THE "holy shit" moment */
-const AccuracyComparison = () => {
-  const comparisons = [
-    { domain: 'Medical Spanish', generic: 73, windy: 96, pair: 'ES↔EN' },
-    { domain: 'Legal German', generic: 68, windy: 94, pair: 'DE↔EN' },
-    { domain: 'Technical Mandarin', generic: 61, windy: 93, pair: 'ZH↔EN' },
-  ];
-  
-  return (
-    <div className="max-w-2xl mx-auto bg-windy-gray/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 md:p-8">
-      <p className="text-sm text-gray-500 uppercase tracking-widest mb-4 font-semibold">Why Specialized Models Win</p>
-      <div className="space-y-4">
-        {comparisons.map((item, i) => (
-          <motion.div 
-            key={i}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.8 + i * 0.2 }}
-            className="flex items-center gap-4"
-          >
-            <div className="w-28 md:w-36 text-right">
-              <span className="text-xs text-gray-500 block">{item.pair}</span>
-              <span className="text-sm text-gray-300 font-medium">{item.domain}</span>
-            </div>
-            <div className="flex-1">
-              {/* Generic bar */}
-              <div className="flex items-center gap-2 mb-1">
-                <div className="flex-1 h-2 bg-gray-800 rounded-full overflow-hidden">
-                  <motion.div 
-                    className="h-full bg-gray-600 rounded-full"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${item.generic}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.2, delay: 0.5 + i * 0.2 }}
-                  />
-                </div>
-                <span className="text-xs text-gray-500 w-10">{item.generic}%</span>
-              </div>
-              {/* WindyWord bar */}
-              <div className="flex items-center gap-2">
-                <div className="flex-1 h-2 bg-gray-800 rounded-full overflow-hidden">
-                  <motion.div 
-                    className="h-full bg-gradient-to-r from-windy-gold to-windy-amber rounded-full"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${item.windy}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.4, delay: 0.7 + i * 0.2 }}
-                  />
-                </div>
-                <span className="text-xs text-windy-amber font-bold w-10">{item.windy}%</span>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-      <div className="flex items-center justify-center gap-6 mt-4 pt-4 border-t border-gray-800">
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 bg-gray-600 rounded-full"></div>
-          <span className="text-xs text-gray-500">Generic</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 bg-windy-amber rounded-full"></div>
-          <span className="text-xs text-windy-amber">WindyWord Specialist</span>
-        </div>
-      </div>
-    </div>
   );
 };
 

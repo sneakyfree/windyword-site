@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 /* Animated specialist model cards that cascade in */
 const specialistModels = [
@@ -87,17 +87,15 @@ const modelPacks = [
   }
 ];
 
-const ModelCatalog = () => {
+const TheVault = () => {
   const [visibleCards, setVisibleCards] = useState(8);
-  const [isRevealing, setIsRevealing] = useState(false);
 
   const revealMore = () => {
-    setIsRevealing(true);
     setVisibleCards(specialistModels.length);
   };
   
   return (
-    <section id="models" className="py-24 px-6 bg-windy-dark relative overflow-hidden">
+    <section id="the-vault" className="py-24 px-6 bg-windy-dark relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-windy-amber/3 rounded-full blur-[150px] pointer-events-none"></div>
       
@@ -110,10 +108,10 @@ const ModelCatalog = () => {
           className="text-center mb-6"
         >
           <h2 className="text-4xl md:text-6xl font-black mb-4">
-            Open the <span className="text-gradient">Treasure Chest</span>
+            Open the <span className="text-gradient">Vault</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-2">
-            3,500+ specialized models. Each one a domain expert. Each one yours to keep.
+            3,500+ specialist models. Each one trained obsessively on one language pair, one domain. Each one yours to keep.
           </p>
           
           {/* Powered by badge */}
@@ -130,7 +128,7 @@ const ModelCatalog = () => {
           </motion.div>
         </motion.div>
         
-        {/* Animated model cards grid - the "treasure chest" reveal */}
+        {/* Animated model cards grid */}
         <div className="my-12">
           <p className="text-center text-sm text-gray-500 uppercase tracking-widest mb-6 font-semibold">Specialist Models — A Sample</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
@@ -193,46 +191,66 @@ const ModelCatalog = () => {
           </motion.p>
         </div>
         
-        {/* Download packs */}
-        <div className="grid md:grid-cols-2 gap-6 mt-16">
-          {modelPacks.map((pack, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-windy-gray/60 backdrop-blur-sm p-8 rounded-xl border border-gray-800/60 hover:border-windy-amber/40 transition-all duration-300 hover:card-glow"
-            >
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex items-center gap-3">
-                  <span className="text-3xl">{pack.emoji}</span>
-                  <div>
-                    <h3 className="text-xl font-bold text-white">{pack.name}</h3>
-                    <span className="text-xs font-semibold text-windy-amber/70 uppercase tracking-wider">{pack.highlight}</span>
+        {/* WindyTraveler Packs Section */}
+        <div className="mt-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-orange-500/10 to-windy-amber/10 border border-orange-500/30 rounded-full mb-4">
+              <span className="text-lg">✈️</span>
+              <span className="text-sm font-black text-gradient">WindyTraveler Packs</span>
+              <span className="text-sm text-gray-500">— Powered by WindyTranslate</span>
+            </div>
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm leading-relaxed">
+              Regional translation model packs for travel and multilingual use. WindyWord's core voice-to-text 
+              works in 99+ languages out of the box — these specialist packs add domain-level translation accuracy.
+            </p>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {modelPacks.map((pack, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group bg-windy-gray/60 backdrop-blur-sm p-8 rounded-xl border border-gray-800/60 hover:border-windy-amber/40 transition-all duration-300 hover:card-glow"
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl">{pack.emoji}</span>
+                    <div>
+                      <h3 className="text-xl font-bold text-white">{pack.name}</h3>
+                      <span className="text-xs font-semibold text-windy-amber/70 uppercase tracking-wider">{pack.highlight}</span>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-windy-amber font-black text-xl">{pack.pairs}</div>
+                    <div className="text-gray-600 text-xs">{pack.size}</div>
                   </div>
                 </div>
-                <div className="text-right">
-                  <div className="text-windy-amber font-black text-xl">{pack.pairs}</div>
-                  <div className="text-gray-600 text-xs">{pack.size}</div>
+                
+                <p className="text-gray-400 text-sm mb-4 leading-relaxed">{pack.description}</p>
+                
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {pack.examples.map((ex, i) => (
+                    <span key={i} className="px-2 py-0.5 bg-windy-dark/80 text-gray-400 text-xs rounded border border-gray-800/40">
+                      {ex}
+                    </span>
+                  ))}
                 </div>
-              </div>
-              
-              <p className="text-gray-400 text-sm mb-4 leading-relaxed">{pack.description}</p>
-              
-              <div className="flex flex-wrap gap-1.5 mb-5">
-                {pack.examples.map((ex, i) => (
-                  <span key={i} className="px-2 py-0.5 bg-windy-dark/80 text-gray-400 text-xs rounded border border-gray-800/40">
-                    {ex}
-                  </span>
-                ))}
-              </div>
-              
-              <button className="w-full px-4 py-3 bg-gradient-to-r from-windy-gold to-windy-amber text-windy-dark font-bold rounded-lg hover:scale-[1.02] transition-transform text-sm">
-                {pack.size.startsWith('$') ? `Get Pack — ${pack.size}` : `Download — ${pack.size}`}
-              </button>
-            </motion.div>
-          ))}
+                
+                <button className="w-full px-4 py-3 bg-gradient-to-r from-windy-gold to-windy-amber text-windy-dark font-bold rounded-lg hover:scale-[1.02] transition-transform text-sm">
+                  {pack.size.startsWith('$') ? `Get Pack — ${pack.size}` : `Download — ${pack.size}`}
+                </button>
+              </motion.div>
+            ))}
+          </div>
         </div>
         
         {/* HuggingFace */}
@@ -261,4 +279,4 @@ const ModelCatalog = () => {
   );
 };
 
-export default ModelCatalog;
+export default TheVault;
