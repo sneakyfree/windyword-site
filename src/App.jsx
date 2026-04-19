@@ -83,14 +83,6 @@ function Gate({ onUnlock }) {
 }
 
 function App() {
-  const [unlocked, setUnlocked] = useState(
-    () => sessionStorage.getItem('ww_unlocked') === '1'
-  );
-
-  if (!unlocked) {
-    return <Gate onUnlock={() => setUnlocked(true)} />;
-  }
-
   return (
     <div className="min-h-screen bg-windy-dark">
       <Navbar />
